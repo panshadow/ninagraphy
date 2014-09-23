@@ -6,7 +6,7 @@
 
 
 (defn home []
-  (layout/common [:h1 "Hello World!"]))
+  (layout/common [:div {:id "zero"}]))
 
 (defn home-selmer []
   (tpl/render-file "index.html" {:title "NinaGraphy"}))
