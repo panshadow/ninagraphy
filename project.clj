@@ -6,6 +6,7 @@
                  [hiccup "1.0.5"]
                  [ring-server "0.3.1"]]
   :plugins [[lein-ring "0.8.10"]]
+                 [selmer "0.7.1"]
   :ring {:handler ninagraphy.handler/app
          :init ninagraphy.handler/init
          :destroy ninagraphy.handler/destroy}

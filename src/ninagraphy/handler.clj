@@ -5,9 +5,12 @@
             [hiccup.middleware :refer [wrap-base-url]]
             [compojure.handler :as handler]
             [compojure.route :as route]
+            [clojure.java.io :as io]
+            [selmer.parser :as tpl]
             [ninagraphy.routes.home :refer [home-routes]]))
 
 (defn init []
+  (tpl/set-resource-path! (io/resource  "templates"))
   (println "ninagraphy is starting"))
 
 (defn destroy []
