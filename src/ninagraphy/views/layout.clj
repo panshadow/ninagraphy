@@ -7,8 +7,11 @@
      [:title "Welcome to ninagraphy:"]
      (include-js "http://fb.me/react-0.11.2.js")
 
-     (include-css "/css/screen.css")]
-    [:body
+     (include-css "/css/screen.css")
+     (include-css "/css/bootstrap.min.css") 
+     ]
+    [:body {:role "document"}
+     
        body
        (include-js "/js/om.ninagraphy.js")
      ]))
