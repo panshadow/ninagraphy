@@ -4,7 +4,7 @@
 (defn common [& body]
   (html5
     [:head
-     [:title "Welcome to ninagraphy:"]
+     [:title ".ninagraphy:"]
      (include-js "http://fb.me/react-0.11.2.js")
 
      (include-css "/css/screen.css")
