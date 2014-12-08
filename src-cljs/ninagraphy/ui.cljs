@@ -24,9 +24,13 @@
     
     om/IRenderState
     (render-state [_ state]
-      (dom/li #js {}
-              (let [title (prop "title")]
-                (str title))))))
+      (let [id (prop "id")
+            photos (prop "photos")
+            num (count photos)
+            main (-> photos (first) (get "photo"))]
+        (dom/li #js {}
+                (str "album #" id " photos: " num ";" main)
+                (dom/img #js {:src main :width "600"}))))))
 
 
 (defn NGraphy [app owner]
@@ -41,7 +45,6 @@
             :response-format :json
             :handler (fn [resp]
                        (let [albums (resp "albums")]
-                         (.log js/console albums)
                          (om/update! app [:albums] albums)))}))
     
     om/IRender
@@ -53,7 +56,7 @@
                  (dom/header #js {:className "top"}
                              (dom/h1 nil "NinaGraphy"))
                  (dom/span nil (str "found " nums " albums"))
-                 (apply dom/ul nil
+                 (apply dom/ul #js {:className "albums"}
                         (om/build-all NGAlbum albums))
                  ))
             )))
